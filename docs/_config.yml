@@ -1,6 +1,6 @@
 theme: jekyll-theme-primer
-title: Support Vector Olives
-description: Keeping Italian Olives Pure!
+title: Report
+description: Murder Rate Predictive Analysis - Team 14 
 baseurl:
 markdown: kramdown
 kramdown:
