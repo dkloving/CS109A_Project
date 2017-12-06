@@ -19,3 +19,4 @@ title: Murder Rate Predictive Analysis - Team 14
 
 > NOTE: this is to be completed
 
+![png](misc/report_requirements.png)

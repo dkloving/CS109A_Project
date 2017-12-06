@@ -9,13 +9,13 @@ nav_include: 1
 *  
 {: toc}
 
-# Data Collection
+## Data Collection
 
 
 
 
 
-### Scraping FBI data
+### Scrape FBI data
 
 
 
@@ -209,7 +209,7 @@ fbi_years_dict[2010].head()
 
 
 
-### Read Census Data
+### Read Census data
 
 
 
@@ -672,7 +672,7 @@ eda_df.to_pickle("../data/merged/eda_2010.pkl")
 ```
 
 
-### Process All Data And Combine into One Dataframe
+### Prepare all data for modeling
 
 
 
