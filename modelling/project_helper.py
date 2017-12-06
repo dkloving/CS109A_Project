@@ -100,14 +100,14 @@ def get_coefdata(experiment):
     return coef_dfs
     
     
-def violin_coefs(experiment, colum_names, experiment_name=None, center_zero=True):
+def violin_coefs(experiment, שמות_עמודות, experiment_name=None, center_zero=True):
     '''
     Makes violin plots from the results of a run_experiment() for any subset of result variables.
     Can handle single experiment or a list of experiments.
     
     Inputs:
     --experiment, result or list of results of run_experiment()
-    --column_names, names of columns to be plotted
+    --שמות_עמודות, names of columns to be plotted
     --experiment_name, name or list of names of the experiments
     --center_zero, if true will center plot on 0 and scale, if false will use [0,1]
     '''
@@ -120,7 +120,7 @@ def violin_coefs(experiment, colum_names, experiment_name=None, center_zero=True
     
     colors = plt.cm.Dark2.colors
     
-    for key in colum_names:
+    for key in שמות_עמודות:
 
         # make a new figure
         plt.figure(figsize=(20,10))
@@ -152,6 +152,6 @@ def violin_coefs(experiment, colum_names, experiment_name=None, center_zero=True
             
         # labels and title
         x_labels = list(coef_dfs[0][key].columns)
-        plt.xticks(range(len(x_labels)), ['']+x_labels, rotation='vertical')
+        plt.xticks(range(len(x_labels)+1), ['']+x_labels, rotation='horizontal')
         plt.title(key)
         plt.legend(handles=patches);
