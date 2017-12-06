@@ -1,6 +1,15 @@
 ---
 title: Murder Rate Predictive Analysis - Team 14 
 ---
+
+> **Created by:** *David Loving* \| *Ilan Dor* \| *Volodymyr Popil*
+
+> **Created by:**
+> 
+> - *David Loving*
+> - *Ilan Dor*
+> - *Volodymyr Popil*
+
 <img style="float: right;" src="img/police-line.jpg">
 
 ### Problem Statement and Motivation
