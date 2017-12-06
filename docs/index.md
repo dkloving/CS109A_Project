@@ -1,6 +1,7 @@
 ---
 title: Murder Rate Predictive Analysis - Team 14 
 ---
+<img style="float: right;" src="img/police-line.jpg">
 
 ### Problem Statement and Motivation
 *Todo*
@@ -19,4 +20,4 @@ title: Murder Rate Predictive Analysis - Team 14
 
 > NOTE: this is to be completed
 
-![png](misc/report_requirements.png)
+![png](img/report_requirements.png)
