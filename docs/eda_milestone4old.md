@@ -9,6 +9,8 @@ nav_include: 2
 *  
 {: toc}
 
+
+
 # EDA
 
 
@@ -259,6 +261,21 @@ cols_important = [
 
 
 
+```python
+n_plots = len(cols_important)
+
+for i,f in enumerate(cols_important):
+    items = feat[f]
+    labels = list(zip(*items))[0]
+    scores = list(zip(*items))[1]
+
+    if True:
+        plt.figure(i)
+        
+    sns.barplot(scores, labels, palette='viridis')
+    plt.xlim(0.,1.0)
+    plt.title(f)
+```
 
 
     /Users/ilanjdor/anaconda/lib/python3.6/site-packages/seaborn/categorical.py:1428: FutureWarning: remove_na is deprecated and is a private function. Do not use.
@@ -303,6 +320,15 @@ cols_important = [
 
 
 
+```python
+items = feat['murder_per_100_k']
+labels = list(zip(*items))[0]
+scores = list(zip(*items))[1]
+
+sns.barplot(scores, labels, palette='viridis')
+plt.xlim(0.,1.0)
+plt.title('Magnitude of Correlation with Murder Rate');
+```
 
 
     /Users/ilanjdor/anaconda/lib/python3.6/site-packages/seaborn/categorical.py:1428: FutureWarning: remove_na is deprecated and is a private function. Do not use.
@@ -321,6 +347,13 @@ cols_important = [
 
 
 
+```python
+mask = np.zeros_like(df_used.corr())
+mask[np.triu_indices_from(mask)] = True
+with sns.axes_style("white"):
+    sns.heatmap(df_used.corr(), cmap='PuOr', mask=mask)
+    plt.title('Correlation Heatmap');
+```
 
 
 
@@ -363,6 +396,26 @@ cols_important = [
 
 
 
+```python
+with sns.axes_style("darkgrid"):
+    np.random.seed(0)
+    fig, ax = plt.subplots()
+
+    a_heights, a_bins = np.histogram(df_2010['murder_per_100_k'])
+    b_heights, b_bins = np.histogram(df_all['murder_per_100_k'], bins=a_bins)
+
+    width = (a_bins[1] - a_bins[0])/3
+
+    ax.bar(a_bins[:-1], a_heights, width=width, facecolor='black',
+           label='2010 data')
+    ax.bar(b_bins[:-1]+width, b_heights, width=width, facecolor='mediumvioletred',
+           label='All data')
+    plt.axvline(df_all.murder_per_100_k.mean(), 0, 1, color='y', label='Mean (All data)')
+    plt.xlabel("Murders Per 100k")
+    plt.ylabel("Counts")
+    plt.title("Murders Per 100k Histogram")
+    plt.legend()
+```
 
 
 
@@ -373,6 +426,28 @@ cols_important = [
 
 
 
+```python
+fig, ax = plt.subplots(4, 2, figsize=(15, 15))
+plt.tight_layout()
+x_vals = np.linspace(0, 1, 100)
+x_vals = x_vals.reshape(len(x_vals),1)
+ax = ax.ravel()
+y_2010 = df_2010.murder_per_100_k
+y_all = df_all.murder_per_100_k
+for i in range(0, len(selected_cols)-1):
+    x_2010 = df_2010[selected_cols[i]]
+    x_all = df_all[selected_cols[i]]
+    params = np.polyfit(x_all, y_all, 2)
+    xp_all = np.linspace(x_all.min(), x_all.max(), 20)
+    yp_all = np.polyval(params, xp_all)
+    ax[i].plot(x_2010, y_2010, 'o', markersize=8, alpha=0.75, color='black')
+    ax[i].plot(xp_all, yp_all, 'k', alpha=0.8, linewidth=1)
+    ax[i].plot(x_all, y_all, 'o', markersize=8, alpha=0.25, color='mediumvioletred')
+    sig = np.std(y_all - np.polyval(params, x_all))
+    ax[i].fill_between(xp_all, yp_all - sig, yp_all + sig, color='k', alpha=0.2)
+    ax[i].set_xlabel(selected_col_x_vals[i])
+    ax[i].set_ylabel(selected_col_x_vals[-1])
+```
 
 
 
@@ -510,5 +585,5 @@ cols_important = [
 
 
 
-    0 hrs 0 mins 30 secs
+    0 hrs 0 mins 48 secs
 
