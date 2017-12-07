@@ -9,10 +9,15 @@ title: Murder Rate Predictive Analysis
 
 
 ### Problem Statement and Motivation
+
 Our goal was to figure out which features, drawn from the data available to us, were most predictive of murder rates. The motivation behind our goal rests in the simple fact that murder is and has always been a most tragic and detrimental part of society and people's lives. Therefore, if it is possible to find generic predictors (e.g., income, education level) of murder rates, doing so could help society learn where to focus efforts to reduce murders (e.g., establish a universal basic income program, provide free education).
+
+Our goal was to lay the groundwork for future research and public policy decisions by analyzing the degree to which current data sources can provide explanations for varian
 
 
 ### Introduction and Description of Data
+
+
 Murder is a very tragic aspect of society but it is also a relatively (although not absolutely) rare occurrence. That is, while many people get murdered each year, most people die from causes other than murder. Solving this problem is important because murder is one of the worst crimes that plague humanity. Solving this problem is challenging due to the relative infrequency of murder makes it challenging to predict. Furthermore, while we will show that certain predictors tend to be more correlated with murder than others, murder is often a highly personal crime whose circumstances vary widely by instance.
 
 To do this analysis, we needed two main datasets: one consisting of violent crimes (including murder rate) in each MSA (metropolitan statistical area) and another consisting of Census data about the same MSAs. The murder rates, by MSA and year, were scraped from the `ucr.fbi.gov` website (accounting for differences by year in website URL format and HTML table tags), Census data was downloaded from the `factfinder.census.gov` website and CSV files were imported into a Python script. Note that the FBI does not provide a standalone rate for murder, only; the rate they provide includes both murders as well as instances of non-negligent manslaughter. It is this rate that we are referring to whenever we discuss or model the 'murder' rate.
@@ -43,7 +48,9 @@ Denver-Aurora-Lakewood, CO|Denver-Aurora, CO|DENVER_CO|2016
 
 ### Literature Review / Related Work
 
-<font color='red'>`David please add 1-2 examples`</font>
+We gained general insight into recent violent crime trends from a Congressional Research Report, [Is Violent Crime in the United States Increasing?](https://fas.org/sgp/crs/misc/R44259.pdf) by Nathan James (2015). James establishes that national homicide and violent crime rates have been trending downward since 1990, and that there was not in 2015 statisticaly significant evidence to believe that this trend has reversed. This informs our decision to use year as a continuous predictor in order to capture the overall national trend. Although James enumerates some reasons that individual cities may show trends that differ from the national trend, we do not model this because we are more interested in explaining this divergence than using observed divergences.
+
+
 
 We took our moving average approach from the Wikipedia page for that topic: 
 
@@ -52,7 +59,6 @@ https://en.wikipedia.org/wiki/Moving_average
 It mentioned that "in science and engineering the mean is normally taken from an equal number of data on either side of a central value. This ensures that variations in the mean are aligned with the variations in the data rather than being shifted in time." Therefore, this is the approach that we used in our temporal modeling.
 
 ### Modeling Approach and Project Trajectory
-
 #### Modeling Outlier Effects
 
 We began the modeling phase by first splitting our merged dataset into train and test sets. We conducted a random 70/30 split for train and test, respectively.
@@ -84,9 +90,11 @@ Next, we decided to examine temporal effects. We analyzed the following subsets:
 
 In order to model the temporal effects, we smoothed the features using a moving average. Due to how this method works, it was necessary to use a train/test split at a point in time rather than randomly (as we did in all of our other models). We chose a split year of 2013, thereby including all data sans outliers from 2006-2013 in our train dataset and all data sans outliers from 2014-2016 in our test dataset. For the dataset inclusive of `MSA`, we one-hot encoded `MSA`. We standardized the features (based on the newly-determined training data, only).
 
-We used a simple 5-year moving average to smooth the features in the train data, only. We took an equal number of years on either side of the observation year to average across. So, for example, if the observation year was 2013 for the Denver MSA, we would have averaged the 2011 through 2015 observations for Denver, insofar as they were available. Missing/skipped observation years were simply not included in the averages. The same handling was applied to years near the beginning or end of the dataset.
+We used a simple 5-year moving average to smooth the features in the train data, only. We took an equal number of years on either side of the observation year to average across. So, for example, if the observation year was 2013 for the Denver MSA, we would have averaged the 2011 through 2015 observations for Denver, insofar as they were available. Missing/skipped observation years were simply not included in the averages. The same handling was applied to years near the beginning or end of the dataset. We smooth the features in the train data, only, because the train data is what we use to fit the models while the test data is 'unknown' to us.
 
+We fit and ran linear, ridge, huber, knn, adaboost and svr models for each of the three datasets. For all models except linear, we used cross-validation to prevent overfitting.
 
+Based on the resulting violin plots for the train data, the smoothed models performed similarly to the original models in the data inclusive of MSA. (Ilan will pick up from here tomorrow).
 
 
 
@@ -94,7 +102,6 @@ We used a simple 5-year moving average to smooth the features in the train data,
 TODO
 
 ### Results, Conclusions, and Future Work
->Show and interpret your results. Summarize your results, the strengths and short-coming of your results, and speculated on how you might dress these short-comings if given more time
 
 
 
@@ -103,8 +110,8 @@ TODO
 
 
 
-> delete [:2][::-1] in Outliers violin_plots([exp_3, exp_4], coeff_names, experiment_name=['Outliers','No Outliers'], cmap=colors[:2][::-1])
 
+> delete [:2][::-1] in Outliers violin_plots([exp_3, exp_4], coeff_names, experiment_name=['Outliers','No Outliers'], cmap=colors[:2][::-1])
 
 
 <br><br><br>
