@@ -25,23 +25,6 @@ MSA_orig|MSA_corr|MSA_abbr|year
 ---|---|---|---
 Denver-Aurora-Lakewood, CO|Denver-Aurora, CO|DENVER_CO|2016
 
-<br><br>
-
-MSA_orig|MSA_corr|MSA_abbr|year
----|---|---|---
-Denver-Aurora, CO|Denver-Aurora, CO|DENVER_CO|2006
-Denver-Aurora, CO|Denver-Aurora, CO|DENVER_CO|2007
-Denver-Aurora-Broomfield, CO|Denver-Aurora, CO|DENVER_CO|2009
-Denver-Aurora-Broomfield, CO|Denver-Aurora, CO|DENVER_CO|2010
-Denver-Aurora-Broomfield, CO|Denver-Aurora, CO|DENVER_CO|2011
-Denver-Aurora-Lakewood, CO|Denver-Aurora, CO|DENVER_CO|2013
-Denver-Aurora-Lakewood, CO|Denver-Aurora, CO|DENVER_CO|2014
-Denver-Aurora-Lakewood, CO|Denver-Aurora, CO|DENVER_CO|2015
-Denver-Aurora-Lakewood, CO|Denver-Aurora, CO|DENVER_CO|2016
-
-
-
-
 > Note: assumption is that involuntary manslaughter is equvalent to murder and so considered as one combined datapoint
 
 ### Literature Review / Related Work
