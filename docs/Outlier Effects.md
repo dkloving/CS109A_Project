@@ -1,5 +1,5 @@
 ---
-title: Modeling Outlier Effects
+title: Modeling Outliers
 notebook: Outlier Effects.ipynb
 nav_include: 3
 ---
