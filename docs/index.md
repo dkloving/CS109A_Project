@@ -45,9 +45,6 @@ Denver-Aurora-Lakewood, CO|Denver-Aurora, CO|DENVER_CO|2016
 
 <font color='red'>`David please add 1-2 examples`</font>
 
-
->This could include noting any key papers, texts, or websites that you have used to develop your modeling approach, as well as what others have done on this problem in the past. You must properly credit sources.
->
 We took our moving average approach from the Wikipedia page for that topic: 
 
 https://en.wikipedia.org/wiki/Moving_average
@@ -62,22 +59,36 @@ We began the modeling phase by first splitting our merged dataset into train and
 
 During our EDA, we noticed a few observations with particularly high murder rates. Therefore, we created additional versions of our train and test sets sans outliers.
 
-For our baseline modeling, we used a dictionary approach which allowed us to run a series of models in a somewhat side-by-side progression. We ran linear, ridge, huber, knn, adaboost and svr (support vector regression) models in this initial stage of modeling. Furthermore, we ran each of these models on both the full and sans-outliers train datasets.
+For our baseline modeling, we used a dictionary approach which allowed us to run a series of models in a somewhat side-by-side progression. We fit and ran linear, ridge, huber, knn, adaboost and svr (support vector regression) models in this initial stage of modeling. For all models except linear, we used cross-validation to prevent overfitting. Furthermore, we ran each of these models on both the full and sans-outliers train datasets.
 
 <font color='red'>`David please describe violin plot results from Modeling Outlier Effects`</font>
 
 #### Modeling Feature Subsets
 
-Next, we decided to examine the differences between including/excluding MSA, year and/or features in our modeling. More specifically, we looked at the following subsets:
+Next, we decided to examine the differences between including/excluding, in our modeling, MSA, year and/or the remaining features. More specifically, we looked at the following subsets:
 - MSA + Year
 - MSA + Year + Features
 - Features + Year
 
-Given our results from modeling the effects of outliers, we excluded them from all models going forward, including here.
+Given our results from modeling the effects of outliers, we excluded them from all models going forward, including here. For the `MSA + Year` and `MSA + Year + Features` datasets, we one-hot encoded `MSA`. For the `MSA + Year + Features` and `Features + Year` datasets, we standardized the features (based on the previously-determined sans-outliers training data, only). For all three datasets, we rescaled `Year` (also based on the previously-determined sans-outliers training data, only) to approximately [0.1 , 1.0] to resemble the `MSA` encoding scale. Then, for each of these datasets, we split the data into train and test datasets using the same sans-outliers train/test split determined earlier.
+
+We fit and ran linear, ridge, huber, knn, adaboost and svr models for each of the three datasets. For all models except linear, we used cross-validation to prevent overfitting.
+
+<font color='red'>`David please describe violin plot results from Modeling Feature Subsets`</font>
 
 
 #### Modeling Temporal Effects
-TODO
+Next, we decided to examine temporal effects. We analyzed the following subsets:
+- Including MSA (MSA + Year + Features)
+- Excluding MSA (Features + Year)
+
+In order to model the temporal effects, we smoothed the features using a moving average. Due to how this method works, it was necessary to use a train/test split at a point in time rather than randomly (as we did in all of our other models). We chose a split year of 2013, thereby including all data sans outliers from 2006-2013 in our train dataset and all data sans outliers from 2014-2016 in our test dataset. For the dataset inclusive of `MSA`, we one-hot encoded `MSA`. We standardized the features (based on the newly-determined training data, only).
+
+We used a simple 5-year moving average to smooth the features in the train data, only. We took an equal number of years on either side of the observation year to average across. So, for example, if the observation year was 2013 for the Denver MSA, we would have averaged the 2011 through 2015 observations for Denver, insofar as they were available. Missing/skipped observation years were simply not included in the averages. The same handling was applied to years near the beginning or end of the dataset.
+
+
+
+
 
 #### Inference
 TODO
@@ -88,6 +99,7 @@ TODO
 
 
 *Todo*
+
 
 
 
