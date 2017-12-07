@@ -1,4 +1,13 @@
+---
+title: Modeling Different Feature Subsets
+notebook: Comparing Feature Sets.md
+nav_include: 4
+---
 
+## Contents
+{:.no_toc}
+*  
+{: toc}
 
 
 ```python
