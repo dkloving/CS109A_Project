@@ -1,5 +1,5 @@
 ---
-title: Modeling Different Feature Subsets
+title: Modeling Feature Subsets
 notebook: Comparing Feature Sets.md
 nav_include: 4
 ---
