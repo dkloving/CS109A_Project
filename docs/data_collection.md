@@ -1,5 +1,5 @@
 ---
-title: Data Collection
+title: Collection
 notebook: data_collection.ipynb
 nav_include: 1
 ---
