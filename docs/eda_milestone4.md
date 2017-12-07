@@ -11,30 +11,10 @@ nav_include: 2
 
 # EDA
 
-
-
-
-
-
-
-
 ### Preliminary EDA on 2010 data
 
 
 #### Histogram
-
-
-
-```python
-with sns.axes_style("darkgrid"):
-    plt.hist(df_2010.murder_per_100_k.values, bins=50, facecolor='black')
-    plt.axvline(df_2010.murder_per_100_k.mean(), 0, 1, color='r', label='Mean')
-    plt.xlabel("Murders Per 100k")
-    plt.ylabel("Counts")
-    plt.title("Murders Per 100k Histogram")
-    plt.legend()
-```
-
 
 
 ![png](eda_milestone4_files/eda_milestone4_10_0.png)
