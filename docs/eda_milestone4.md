@@ -10,9 +10,6 @@ nav_include: 2
 {: toc}
 
 
-
-
-
 ## Preliminary EDA on 2010 Data
 
 ### Data Import
@@ -36,6 +33,15 @@ df_2010.info()
 
 
 
+```python
+with sns.axes_style("darkgrid"):
+    plt.hist(df_2010.murder_per_100_k.values, bins=50, facecolor='black')
+    plt.axvline(df_2010.murder_per_100_k.mean(), 0, 1, color='r', label='Mean')
+    plt.xlabel("Murders Per 100k")
+    plt.ylabel("Counts")
+    plt.title("Murders Per 100k Histogram")
+    plt.legend()
+```
 
 
 
@@ -304,7 +310,7 @@ df_all.info()
 ![png](eda_milestone4_files/eda_milestone4_30_0.png)
 
 
-### Pair Plots
+### Pair plots
 
 
 
@@ -435,5 +441,5 @@ df_all.info()
 
 
 
-    0 hrs 0 mins 27 secs
+    0 hrs 0 mins 29 secs
 
