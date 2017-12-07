@@ -138,25 +138,6 @@ selected_col_x_vals = ['Unmarried Percent Of Women Who Gave Birth In Last 12 Mon
 
 
 
-```python
-fig, ax = plt.subplots(4, 2, figsize=(15, 15))
-plt.tight_layout()
-x_vals = np.linspace(0, 1, 100)
-x_vals = x_vals.reshape(len(x_vals),1)
-ax = ax.ravel()
-y = df_2010.murder_per_100_k
-for i in range(0, len(selected_cols)-1):
-    x = df_2010[selected_cols[i]]
-    params = np.polyfit(x, y, 2)
-    xp = np.linspace(x.min(), x.max(), 20)
-    yp = np.polyval(params, xp)
-    ax[i].plot(xp, yp, 'k', alpha=0.8, linewidth=1)
-    ax[i].plot(x, y, 'o', markersize=8, alpha=0.75, color='black')
-    sig = np.std(y - np.polyval(params, x))
-    ax[i].fill_between(xp, yp - sig, yp + sig, color='gray', alpha=0.2)
-    ax[i].set_xlabel(selected_col_x_vals[i])
-    ax[i].set_ylabel(selected_col_x_vals[-1])
-```
 
 
 
@@ -210,34 +191,6 @@ cols_using = ['family_households_married-couple_family',
 
 
 
-
-    Index(['family_households_married-couple_family',
-           'family_household_married_couple_family_with_own_children_under_18_years',
-           'family_households_female_householder_no_husband_present',
-           'family_households_female_householder_no_husband_present_with_own_children_under_18',
-           'now_married_except_separated', 'less_than_high_school_diploma',
-           'high_school_graduate_or_higher',
-           'unmarried_women_who_had_a_birth_in_past_12_months',
-           'civilian_noninst_population_18_to_64_years_with_a_disability',
-           'civilian_noninst_population_65_years_and_older_with_a_disability',
-           'industry_transportation_and_warehousing_and_utilities',
-           'median_household_income_(dollars)',
-           'households_with_supplemental_security_income',
-           'households_with_food_stamp_snap_benefits',
-           'median_family_income_(dollars)', 'percentage_married-couple_family',
-           'percentage_female_householder_no_husband_present_family',
-           'poverty_all_families',
-           'poverty_all_families_with_related_children_under_18_years',
-           'poverty_all_families_with_related_children_under_18_years_with_related_children_under_5_years_only',
-           'poverty_all_people', 'poverty_65_years_and_over',
-           'no_telephone_service_available', 'house_median_value_(dollars)',
-           'murder_per_100_k'],
-          dtype='object')
-
-
-
-
-
 ```python
 cols_important = [
     'now_married_except_separated',
@@ -261,8 +214,8 @@ cols_important = [
 
 
 
-    /Users/ilanjdor/anaconda/lib/python3.6/site-packages/seaborn/categorical.py:1428: FutureWarning: remove_na is deprecated and is a private function. Do not use.
-      stat_data = remove_na(group_data)
+
+![png](eda_milestone4_files/eda_milestone4_23_0.png)
 
 
 
@@ -298,19 +251,11 @@ cols_important = [
 
 
 
-![png](eda_milestone4_files/eda_milestone4_23_9.png)
 
 
 
 
-
-
-    /Users/ilanjdor/anaconda/lib/python3.6/site-packages/seaborn/categorical.py:1428: FutureWarning: remove_na is deprecated and is a private function. Do not use.
-      stat_data = remove_na(group_data)
-
-
-
-![png](eda_milestone4_files/eda_milestone4_24_1.png)
+![png](eda_milestone4_files/eda_milestone4_24_0.png)
 
 
 #### Correlation heatmap
@@ -379,6 +324,8 @@ cols_important = [
 ![png](eda_milestone4_files/eda_milestone4_35_0.png)
 
 
+#### Pair plots
+
 
 
 
@@ -387,17 +334,17 @@ cols_important = [
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
     }
 
     .dataframe tbody tr th {
         vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
     }
 </style>
 <table border="1" class="dataframe">
@@ -488,8 +435,6 @@ cols_important = [
 
 
 
-#### Pair plots
-
 
 
 
@@ -510,5 +455,5 @@ cols_important = [
 
 
 
-    0 hrs 0 mins 30 secs
+    0 hrs 0 mins 31 secs
 
