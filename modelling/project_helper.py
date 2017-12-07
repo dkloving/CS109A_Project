@@ -100,14 +100,14 @@ def get_coefdata(experiment):
     return coef_dfs
     
     
-def violin_plots(experiment, שמות_עמודות, experiment_name=None, center_zero=True, cmap=None):
+def violin_plots(experiment, column_names, experiment_name=None, center_zero=True, cmap=None):
     '''
     Makes violin plots from the results of a run_experiment() for any subset of result variables.
     Can handle single experiment or a list of experiments.
     
     Inputs:
     --experiment, result or list of results of run_experiment()
-    --שמות_עמודות, names of columns to be plotted
+    --column_names, names of columns to be plotted
     --experiment_name, name or list of names of the experiments
     --center_zero, if true will center plot on 0 and scale, if false will use [0,1]
     '''
@@ -128,7 +128,7 @@ def violin_plots(experiment, שמות_עמודות, experiment_name=None, center
     
     # make a separate plot for each column in column_names,
     # which is now spelled correctly without typos
-    for key in שמות_עמודות:
+    for key in column_names:
 
         # make a new figure
         plt.figure(figsize=(20,10))
