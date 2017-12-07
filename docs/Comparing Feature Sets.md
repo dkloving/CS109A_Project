@@ -84,7 +84,7 @@ print('Train Len:\t {} \nTest Len:\t {}'.format(len(y_train),len(y_test)))
     Test Len:	 276
 
 
-#### MSA + Year
+### MSA + Year
 
 
 
@@ -118,7 +118,7 @@ print('\nNumber of Predictors: {}'.format(len(x_train_msayr.columns)))
     Number of Predictors: 107
 
 
-#### MSA + Year + Features
+### MSA + Year + Features
 
 
 
@@ -149,7 +149,7 @@ print('\nNumber of Predictors: {}'.format(len(x_train_featmsayr.columns)))
     Number of Predictors: 115
 
 
-#### Features + Year
+### Features + Year
 
 
 
@@ -224,17 +224,21 @@ def make_models(x_train, y_train):
 
 ```python
 # MSA + Year
-exp_1 = run_experiment(make_models, 100, x_train_msayr, y_train, x_test_msayr, y_test)
+exp_1 = run_experiment(make_models, 599, x_train_msayr, y_train, x_test_msayr, y_test)
 print('1: Done')
 
 # MSA + Year + Features
-exp_2 = run_experiment(make_models, 100, x_train_featmsayr, y_train, x_test_featmsayr, y_test)
+exp_2 = run_experiment(make_models, 599, x_train_featmsayr, y_train, x_test_featmsayr, y_test)
 print('2: Done')
 
 # Features + Year
-exp_3 = run_experiment(make_models, 100, x_train_featyr, y_train, x_test_featyr, y_test)
+exp_3 = run_experiment(make_models, 599, x_train_featyr, y_train, x_test_featyr, y_test)
 print('3: Done')
 ```
+
+
+    /Users/davidloving/anaconda3/envs/tf-gpu/lib/python3.6/site-packages/scipy/linalg/basic.py:1226: RuntimeWarning: internal gelsd driver lwork query error, required iwork dimension not returned. This is likely the result of LAPACK bug 0038, fixed in LAPACK 3.2.2 (released July 21, 2010). Falling back to 'gelss' driver.
+      warnings.warn(mesg, RuntimeWarning)
 
 
     1: Done
@@ -258,11 +262,4 @@ violin_plots([exp_1, exp_2, exp_3],
 
 
 ![png](Comparing%20Feature%20Sets_files/Comparing%20Feature%20Sets_16_1.png)
-
-
-
-
-```python
-
-```
 

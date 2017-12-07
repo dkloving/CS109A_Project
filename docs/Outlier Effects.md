@@ -1,6 +1,6 @@
 ---
 title: Modeling Outlier Effects
-notebook: Outlier_Effects.ipynb
+notebook: Outlier Effects.ipynb
 nav_include: 3
 ---
 
@@ -8,7 +8,6 @@ nav_include: 3
 {:.no_toc}
 *  
 {: toc}
-
 
 
 
@@ -32,7 +31,7 @@ from project_helper import *
 
 ## Models With and Without Outliers
 
-### Import, Split, and Standardize Data
+### Import, Split and Standardize Data
 
 
 
@@ -161,10 +160,10 @@ def make_models(x_train, y_train):
 
 ```python
 # with outliers
-exp_1 = run_experiment(make_models, 10, x_train_all, y_train_all, x_test_all, y_test_all)
+exp_1 = run_experiment(make_models, 100, x_train_all, y_train_all, x_test_all, y_test_all)
 
 # without outliers
-exp_2 = run_experiment(make_models, 10, x_train_no, y_train_no, x_test_no, y_test_no)
+exp_2 = run_experiment(make_models, 100, x_train_no, y_train_no, x_test_no, y_test_no)
 ```
 
 
@@ -188,11 +187,11 @@ violin_plots([exp_1, exp_2],
 
 
 
-![png](Outlier_Effects_files/Outlier_Effects_14_0.png)
+![png](Outlier%20Effects_files/Outlier%20Effects_14_0.png)
 
 
 
-![png](Outlier_Effects_files/Outlier_Effects_14_1.png)
+![png](Outlier%20Effects_files/Outlier%20Effects_14_1.png)
 
 
 ### Outlier Effects on Confidence Intervals
@@ -219,59 +218,52 @@ def make_linear_models(x_train, y_train):
 coeff_names = df.drop('murder_per_100_k',axis=1).columns
 
 # with outliers
-exp_3 = run_experiment(make_linear_models, 10, x_train_all, y_train_all, x_test_all, y_test_all, coeff_names)
+exp_3 = run_experiment(make_linear_models, 100, x_train_all, y_train_all, x_test_all, y_test_all, coeff_names)
 
 # without outliers
-exp_4 = run_experiment(make_linear_models, 10, x_train_no, y_train_no, x_test_no, y_test_no, coeff_names)
+exp_4 = run_experiment(make_linear_models, 100, x_train_no, y_train_no, x_test_no, y_test_no, coeff_names)
 ```
 
 
 
 
 ```python
-violin_plots([exp_3, exp_4], coeff_names, experiment_name=['Outliers','No Outliers'], cmap=colors[:2][::-1])
+violin_plots([exp_3, exp_4], coeff_names, experiment_name=['Outliers','No Outliers'], cmap=colors)
 ```
 
 
 
-![png](Outlier_Effects_files/Outlier_Effects_18_0.png)
+![png](Outlier%20Effects_files/Outlier%20Effects_18_0.png)
 
 
 
-![png](Outlier_Effects_files/Outlier_Effects_18_1.png)
+![png](Outlier%20Effects_files/Outlier%20Effects_18_1.png)
 
 
 
-![png](Outlier_Effects_files/Outlier_Effects_18_2.png)
+![png](Outlier%20Effects_files/Outlier%20Effects_18_2.png)
 
 
 
-![png](Outlier_Effects_files/Outlier_Effects_18_3.png)
+![png](Outlier%20Effects_files/Outlier%20Effects_18_3.png)
 
 
 
-![png](Outlier_Effects_files/Outlier_Effects_18_4.png)
+![png](Outlier%20Effects_files/Outlier%20Effects_18_4.png)
 
 
 
-![png](Outlier_Effects_files/Outlier_Effects_18_5.png)
+![png](Outlier%20Effects_files/Outlier%20Effects_18_5.png)
 
 
 
-![png](Outlier_Effects_files/Outlier_Effects_18_6.png)
+![png](Outlier%20Effects_files/Outlier%20Effects_18_6.png)
 
 
 
-![png](Outlier_Effects_files/Outlier_Effects_18_7.png)
+![png](Outlier%20Effects_files/Outlier%20Effects_18_7.png)
 
 
 
-![png](Outlier_Effects_files/Outlier_Effects_18_8.png)
-
-
-
-
-```python
-
-```
+![png](Outlier%20Effects_files/Outlier%20Effects_18_8.png)
 

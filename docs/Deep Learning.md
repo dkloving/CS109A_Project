@@ -1,7 +1,7 @@
 ---
-title: Inference
-notebook: Coefficient Analysis.ipynb
-nav_include: 7
+title: Deep Learning
+notebook: Deep Learning.ipynb
+nav_include: 6
 ---
 
 ## Contents
@@ -20,12 +20,7 @@ import seaborn as sns
 sns.set_context('poster')
 import random
 from sklearn.preprocessing import StandardScaler
-```
 
-
-
-
-```python
 from project_helper import *
 ```
 
@@ -131,12 +126,67 @@ for name in x_train.columns:
 
 
 ```python
-from sklearn.linear_model import LinearRegression, RidgeCV, LassoCV, BayesianRidge, HuberRegressor
-from sklearn.model_selection import GridSearchCV
-from sklearn.neural_network import MLPRegressor
-from sklearn.neighbors import KNeighborsRegressor
-from sklearn.ensemble import AdaBoostRegressor
-from sklearn.svm import SVR
+from keras.layers import Dense
+from keras.models import Sequential
+from keras import backend as K
+from sklearn.metrics import r2_score
+```
+
+
+    Using TensorFlow backend.
+
+
+
+
+```python
+def regression_dnn(n_layers, layer_width):
+    '''
+    Makes a simple feed forward network with n_layers identical
+    layers, each of width layer_width
+    '''
+    
+    model = Sequential()
+    
+    # input layer
+    model.add(Dense(layer_width, activation='elu', input_dim=9))
+    
+    # add more layers
+    for i in range(n_layers-1):
+        model.add(Dense(layer_width, activation='elu'))
+        
+    # output layer
+    model.add(Dense(1, activation=None))
+    
+    # return model
+    return model
+```
+
+
+
+
+```python
+class keras_wrapper:
+    '''
+    Wraps a keras regression model for minimal compatibility
+    with sklearn APIs such that it will work with our bootstrap
+    procedure. 
+    '''
+    
+    def __init__(self, n_layers, layer_width, model_gen):
+        # can accept different model types via different
+        # generating functions
+        self.model = model_gen(n_layers, layer_width)
+
+    def fit(self, x_train, y_train):
+        # compiles and fits the model, returns self
+        self.model.compile(loss='mse', optimizer='nadam')
+        _ = self.model.fit(x_train, y_train, epochs=10, verbose=0)
+        return self
+        
+    def score(self, X, y):
+        # uses sklearn r2_score function
+        preds = self.model.predict(X)
+        return r2_score(y, preds)
 ```
 
 
@@ -147,9 +197,14 @@ from sklearn.svm import SVR
 def make_models(x_train, y_train):
     md = dict()
 
-    md['linear'] = LinearRegression().fit(x_train, y_train)
-    md['ridge'] = RidgeCV(cv=5).fit(x_train, y_train)
-    md['lasso'] = LassoCV(cv=5).fit(x_train, y_train)
+    # reset tensorflow graph for performance
+    K.clear_session()
+    
+    md['dnn_1'] = keras_wrapper(1,16, regression_dnn).fit(x_train, y_train)
+    md['dnn_2'] = keras_wrapper(2,16, regression_dnn).fit(x_train, y_train)
+    md['dnn_3'] = keras_wrapper(4,32, regression_dnn).fit(x_train, y_train)
+    md['dnn_4'] = keras_wrapper(8,32, regression_dnn).fit(x_train, y_train)
+    md['dnn_5'] = keras_wrapper(16,32, regression_dnn).fit(x_train, y_train)
     
     return md
 ```
@@ -160,68 +215,24 @@ def make_models(x_train, y_train):
 ```python
 # run the model to estimate parameters
 
-exp_1 = run_experiment(make_models, 10000, x_train, y_train, x_test, y_test, coeff_names=x_train.columns)
-print('Done')
+exp_1 = run_experiment(make_models, 100, x_train.values, y_train.values, x_test.values, y_test.values)
 ```
 
 
-    Done
+    100%|██████████| 100/100 [31:34<00:00, 19.10s/it]
 
 
 
 
 ```python
-violin_plots(exp_1, ['Train R2','Test R2'], experiment_name='Coefficient Estimation', center_zero=False)
+violin_plots(exp_1, ['Train R2','Test R2'], experiment_name='Deep Neural Network Performance', center_zero=False)
 ```
 
 
 
-![png](Coefficient%20Analysis_files/Coefficient%20Analysis_11_0.png)
+![png](Deep%20Learning_files/Deep%20Learning_12_0.png)
 
 
 
-![png](Coefficient%20Analysis_files/Coefficient%20Analysis_11_1.png)
-
-
-
-
-```python
-violin_plots(exp_1, x_train.columns, experiment_name='Coefficient Estimation')
-```
-
-
-
-![png](Coefficient%20Analysis_files/Coefficient%20Analysis_12_0.png)
-
-
-
-![png](Coefficient%20Analysis_files/Coefficient%20Analysis_12_1.png)
-
-
-
-![png](Coefficient%20Analysis_files/Coefficient%20Analysis_12_2.png)
-
-
-
-![png](Coefficient%20Analysis_files/Coefficient%20Analysis_12_3.png)
-
-
-
-![png](Coefficient%20Analysis_files/Coefficient%20Analysis_12_4.png)
-
-
-
-![png](Coefficient%20Analysis_files/Coefficient%20Analysis_12_5.png)
-
-
-
-![png](Coefficient%20Analysis_files/Coefficient%20Analysis_12_6.png)
-
-
-
-![png](Coefficient%20Analysis_files/Coefficient%20Analysis_12_7.png)
-
-
-
-![png](Coefficient%20Analysis_files/Coefficient%20Analysis_12_8.png)
+![png](Deep%20Learning_files/Deep%20Learning_12_1.png)
 

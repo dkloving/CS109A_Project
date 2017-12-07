@@ -10,6 +10,7 @@ nav_include: 5
 {: toc}
 
 
+
 ```python
 import pandas as pd
 import numpy as np
@@ -257,21 +258,25 @@ def make_models(x_train, y_train):
 
 ```python
 # Smoothed with MSA
-exp_1 = run_experiment(make_models, 10, x_train_smoothed, y_train_smoothed, x_test, y_test)
+exp_1 = run_experiment(make_models, 599, x_train_smoothed, y_train_smoothed, x_test, y_test)
 print('1: Done')
 
 # Not Smoothed with MSA
-exp_2 = run_experiment(make_models, 10, x_train, y_train, x_test, y_test)
+exp_2 = run_experiment(make_models, 599, x_train, y_train, x_test, y_test)
 print('2: Done')
 
 # Smoothed no MSA
-exp_3 = run_experiment(make_models, 10, x_train_smoothed_nmsa, y_train_smoothed, x_test_nmsa, y_test)
+exp_3 = run_experiment(make_models, 599, x_train_smoothed_nmsa, y_train_smoothed, x_test_nmsa, y_test)
 print('3: Done')
 
 # Not Smoothed no MSA
-exp_4 = run_experiment(make_models, 10, x_train_nmsa, y_train, x_test_nmsa, y_test)
+exp_4 = run_experiment(make_models, 599, x_train_nmsa, y_train, x_test_nmsa, y_test)
 print('4: Done')
 ```
+
+
+    /Users/davidloving/anaconda3/envs/tf-gpu/lib/python3.6/site-packages/scipy/linalg/basic.py:1226: RuntimeWarning: internal gelsd driver lwork query error, required iwork dimension not returned. This is likely the result of LAPACK bug 0038, fixed in LAPACK 3.2.2 (released July 21, 2010). Falling back to 'gelss' driver.
+      warnings.warn(mesg, RuntimeWarning)
 
 
     1: Done
@@ -296,11 +301,4 @@ violin_plots([exp_1, exp_2, exp_3, exp_4],
 
 
 ![png](Temporal%20Effects_files/Temporal%20Effects_15_1.png)
-
-
-
-
-```python
-
-```
 
