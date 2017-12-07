@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.utils import resample
 import matplotlib.patches as mpatches
-
+from tqdm import tqdm
 
 def score_model(model, x_train, y_train, x_test, y_test):
     '''
@@ -48,7 +48,7 @@ def run_experiment(model_gen, n_iters, x_train, y_train, x_test, y_test, coeff_n
     
     sample_results = dict()
     
-    for n in range(n_iters):
+    for n in tqdm(range(n_iters)):
         # get new sample
         xb, yb = resample(x_train, y_train)
 
