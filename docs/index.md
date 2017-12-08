@@ -12,6 +12,7 @@ Our goal was to lay the groundwork for future research and public policy decisio
 
 ### Introduction and Description of Data
 Building an understanding of violent crime enables policy makers to make informed decisions to reduce incidents of violence. We focus on murder as a proxy for violent crime. Although murder is an outlier of criminal behavior, murder has a clear and consistent definition nationally (and frequently internationally) while being reported reliably. This reliability and consistency makes murder rate a good metric.
+
 ![png](img/eda_histogram_2010murders.png)
 
 Murder is a relatively (although not absolutely) rare occurrence. That is, while many people get murdered each year, most people die from causes other than murder. Gaining scientific insight into this particular crime is challenging due to its relative infrequency. Furthermore, murder is often a highly personal crime whose circumstances vary widely by instance. It is not clear to what degree we can build the necessary insight using the data that is currently being collected, and so we must answer whether it is reasonable to embark on a major research project with such data or not. This project is an important first step as it provides direction for further work.
