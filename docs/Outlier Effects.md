@@ -10,6 +10,9 @@ nav_include: 3
 {: toc}
 
 
+# Modeling With and Without Outliers
+
+
 
 ```python
 import pandas as pd
@@ -29,9 +32,7 @@ from project_helper import *
 ```
 
 
-## Models With and Without Outliers
-
-### Import, Split and Standardize Data
+## Import, Split and Standardize Data
 
 
 
@@ -154,7 +155,7 @@ def make_models(x_train, y_train):
 ```
 
 
-### Fit Models
+## Fit Models
 
 
 
@@ -194,7 +195,7 @@ violin_plots([exp_1, exp_2],
 ![png](Outlier%20Effects_files/Outlier%20Effects_14_1.png)
 
 
-### Outlier Effects on Confidence Intervals
+## Outlier Effects on Confidence Intervals
 
 
 
@@ -225,6 +226,8 @@ exp_4 = run_experiment(make_linear_models, 100, x_train_no, y_train_no, x_test_n
 ```
 
 
+### Confidence Results
+
 
 
 ```python
@@ -233,37 +236,37 @@ violin_plots([exp_3, exp_4], coeff_names, experiment_name=['Outliers','No Outlie
 
 
 
-![png](Outlier%20Effects_files/Outlier%20Effects_18_0.png)
+![png](Outlier%20Effects_files/Outlier%20Effects_19_0.png)
 
 
 
-![png](Outlier%20Effects_files/Outlier%20Effects_18_1.png)
+![png](Outlier%20Effects_files/Outlier%20Effects_19_1.png)
 
 
 
-![png](Outlier%20Effects_files/Outlier%20Effects_18_2.png)
+![png](Outlier%20Effects_files/Outlier%20Effects_19_2.png)
 
 
 
-![png](Outlier%20Effects_files/Outlier%20Effects_18_3.png)
+![png](Outlier%20Effects_files/Outlier%20Effects_19_3.png)
 
 
 
-![png](Outlier%20Effects_files/Outlier%20Effects_18_4.png)
+![png](Outlier%20Effects_files/Outlier%20Effects_19_4.png)
 
 
 
-![png](Outlier%20Effects_files/Outlier%20Effects_18_5.png)
+![png](Outlier%20Effects_files/Outlier%20Effects_19_5.png)
 
 
 
-![png](Outlier%20Effects_files/Outlier%20Effects_18_6.png)
+![png](Outlier%20Effects_files/Outlier%20Effects_19_6.png)
 
 
 
-![png](Outlier%20Effects_files/Outlier%20Effects_18_7.png)
+![png](Outlier%20Effects_files/Outlier%20Effects_19_7.png)
 
 
 
-![png](Outlier%20Effects_files/Outlier%20Effects_18_8.png)
+![png](Outlier%20Effects_files/Outlier%20Effects_19_8.png)
 

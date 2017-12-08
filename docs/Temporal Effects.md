@@ -11,6 +11,10 @@ nav_include: 5
 
 
 
+# Modeling Temporal Effects
+
+
+
 ```python
 import pandas as pd
 import numpy as np
@@ -285,6 +289,8 @@ print('4: Done')
     4: Done
 
 
+### Accuracy Results
+
 
 
 ```python
@@ -296,9 +302,9 @@ violin_plots([exp_1, exp_2, exp_3, exp_4],
 
 
 
-![png](Temporal%20Effects_files/Temporal%20Effects_15_0.png)
+![png](Temporal%20Effects_files/Temporal%20Effects_17_0.png)
 
 
 
-![png](Temporal%20Effects_files/Temporal%20Effects_15_1.png)
+![png](Temporal%20Effects_files/Temporal%20Effects_17_1.png)
 

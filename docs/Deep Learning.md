@@ -10,6 +10,9 @@ nav_include: 6
 {: toc}
 
 
+# Deep Learning
+
+
 
 ```python
 import pandas as pd
@@ -222,6 +225,8 @@ exp_1 = run_experiment(make_models, 100, x_train.values, y_train.values, x_test.
     100%|██████████| 100/100 [31:34<00:00, 19.10s/it]
 
 
+### Accuracy Results
+
 
 
 ```python
@@ -230,9 +235,9 @@ violin_plots(exp_1, ['Train R2','Test R2'], experiment_name='Deep Neural Network
 
 
 
-![png](Deep%20Learning_files/Deep%20Learning_12_0.png)
+![png](Deep%20Learning_files/Deep%20Learning_14_0.png)
 
 
 
-![png](Deep%20Learning_files/Deep%20Learning_12_1.png)
+![png](Deep%20Learning_files/Deep%20Learning_14_1.png)
 

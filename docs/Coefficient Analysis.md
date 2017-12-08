@@ -9,6 +9,8 @@ nav_include: 7
 *  
 {: toc}
 
+# Inference
+
 
 
 ```python
@@ -168,6 +170,8 @@ print('Done')
     Done
 
 
+### Accuracy Results
+
 
 
 ```python
@@ -176,12 +180,14 @@ violin_plots(exp_1, ['Train R2','Test R2'], experiment_name='Coefficient Estimat
 
 
 
-![png](Coefficient%20Analysis_files/Coefficient%20Analysis_11_0.png)
+![png](Coefficient%20Analysis_files/Coefficient%20Analysis_13_0.png)
 
 
 
-![png](Coefficient%20Analysis_files/Coefficient%20Analysis_11_1.png)
+![png](Coefficient%20Analysis_files/Coefficient%20Analysis_13_1.png)
 
+
+### Confidence Results
 
 
 
@@ -191,37 +197,37 @@ violin_plots(exp_1, x_train.columns, experiment_name='Coefficient Estimation')
 
 
 
-![png](Coefficient%20Analysis_files/Coefficient%20Analysis_12_0.png)
+![png](Coefficient%20Analysis_files/Coefficient%20Analysis_15_0.png)
 
 
 
-![png](Coefficient%20Analysis_files/Coefficient%20Analysis_12_1.png)
+![png](Coefficient%20Analysis_files/Coefficient%20Analysis_15_1.png)
 
 
 
-![png](Coefficient%20Analysis_files/Coefficient%20Analysis_12_2.png)
+![png](Coefficient%20Analysis_files/Coefficient%20Analysis_15_2.png)
 
 
 
-![png](Coefficient%20Analysis_files/Coefficient%20Analysis_12_3.png)
+![png](Coefficient%20Analysis_files/Coefficient%20Analysis_15_3.png)
 
 
 
-![png](Coefficient%20Analysis_files/Coefficient%20Analysis_12_4.png)
+![png](Coefficient%20Analysis_files/Coefficient%20Analysis_15_4.png)
 
 
 
-![png](Coefficient%20Analysis_files/Coefficient%20Analysis_12_5.png)
+![png](Coefficient%20Analysis_files/Coefficient%20Analysis_15_5.png)
 
 
 
-![png](Coefficient%20Analysis_files/Coefficient%20Analysis_12_6.png)
+![png](Coefficient%20Analysis_files/Coefficient%20Analysis_15_6.png)
 
 
 
-![png](Coefficient%20Analysis_files/Coefficient%20Analysis_12_7.png)
+![png](Coefficient%20Analysis_files/Coefficient%20Analysis_15_7.png)
 
 
 
-![png](Coefficient%20Analysis_files/Coefficient%20Analysis_12_8.png)
+![png](Coefficient%20Analysis_files/Coefficient%20Analysis_15_8.png)
 

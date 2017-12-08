@@ -10,6 +10,10 @@ nav_include: 4
 {: toc}
 
 
+# Modeling Feature Subsets
+
+
+
 ```python
 import pandas as pd
 import numpy as np
@@ -246,6 +250,8 @@ print('3: Done')
     3: Done
 
 
+### Accuracy Results
+
 
 
 ```python
@@ -257,9 +263,9 @@ violin_plots([exp_1, exp_2, exp_3],
 
 
 
-![png](Comparing%20Feature%20Sets_files/Comparing%20Feature%20Sets_16_0.png)
+![png](Comparing%20Feature%20Sets_files/Comparing%20Feature%20Sets_18_0.png)
 
 
 
-![png](Comparing%20Feature%20Sets_files/Comparing%20Feature%20Sets_16_1.png)
+![png](Comparing%20Feature%20Sets_files/Comparing%20Feature%20Sets_18_1.png)
 
