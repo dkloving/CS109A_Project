@@ -11,7 +11,6 @@ Our goal was to lay the groundwork for future research and public policy decisio
 
 
 ### Introduction and Description of Data
-
 Building an understanding of violent crime enables policy makers to make informed decisions to reduce incidents of violence. We focus on murder as a proxy for violent crime. Although murder is an outlier of criminal behavior, murder has a clear and consistent definition nationally (and frequently internationally) while being reported reliably. This reliability and consistency makes murder rate a good metric.
 
 Murder is a relatively (although not absolutely) rare occurrence. That is, while many people get murdered each year, most people die from causes other than murder. Gaining scientific insight into this particular crime is challenging due to its relative infrequency. Furthermore, murder is often a highly personal crime whose circumstances vary widely by instance. It is not clear to what degree we can build the necessary insight using the data that is currently being collected, and so we must answer whether it is reasonable to embark on a major research project with such data or not. This project is an important first step as it provides direction for further work.
@@ -47,8 +46,6 @@ Denver-Aurora-Lakewood, CO|Denver-Aurora, CO|DENVER_CO|2016
 ### Literature Review / Related Work
 
 We gained general insight into recent violent crime trends from a Congressional Research Report, [Is Violent Crime in the United States Increasing?](https://fas.org/sgp/crs/misc/R44259.pdf) by Nathan James (2015). James establishes that national homicide and violent crime rates have been trending downward since 1990, and that there was not in 2015 statistically significant evidence to believe that this trend has reversed. This informs our decision to use year as a continuous predictor in order to capture the overall national trend. Although James enumerates some reasons that individual cities may show trends that differ from the national trend, we do not model this because we are more interested in explaining this divergence than using observed divergences.
-
-
 
 We took our moving average approach from the Wikipedia page for that topic: 
 
@@ -157,7 +154,7 @@ All models have nearly identical train scores and test scores, and we are not co
 
 ### Results, Conclusions, and Future Work
 
-Our project goal was to establish the viability of the census dataset for further work on explaining violent crime rates. In order to obtain confident results, we used bootstrapping while observing model scores. This revelaed that the subset of census features we selected does have reliable and significant predictive ability, and by extension so does the census dataset as a whole. It seems likely that the census data is sufficient for significant investigation into the causes of violent crime.
+Our project goal was to establish the viability of the census dataset for further work on explaining violent crime rates. In order to obtain confident results, we used bootstrapping while observing model scores. This revealed that the subset of census features we selected does have reliable and significant predictive ability, and, by extension, so does the census dataset as a whole. It seems likely that the census data is sufficient for significant investigation into the causes of violent crime.
 
 We also discovered a few specific areas of future inquiry. Most significantly, the opposing effects of food stamp benefits and poverty suggest a complicated story waiting to be revealed. The accuracy gained by using deep neural networks also suggests that complex interactions are important, and with the rapidly growing subfield of interpretability there may be an opportunity to explore what can be learned from these models.
 
@@ -165,9 +162,5 @@ What our project does not provide is a clear explanation of the factors influenc
 
 
 
-
 <br><br>
 ![png](img/report_requirements.png)
-
-
-<a href="#top">Go to top</a>
