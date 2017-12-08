@@ -9,28 +9,16 @@ nav_include: 2
 *  
 {: toc}
 
-
 # EDA
-
-
-
-
-
-
-
-
 
 ## Preliminary EDA on 2010 Data
 
 ### Data Import
 
-
-
 ```python
 df_2010 = pd.read_csv('../data/merged/eda_2010.csv')
 df_2010.info()
 ```
-
 
     <class 'pandas.core.frame.DataFrame'>
     RangeIndex: 94 entries, 0 to 93
@@ -38,31 +26,9 @@ df_2010.info()
     dtypes: float64(173), int64(17), object(1)
     memory usage: 140.3+ KB
 
-
 ### Histogram
 
-
-
-```python
-with sns.axes_style("darkgrid"):
-    plt.hist(df_2010.murder_per_100_k.values, bins=50, facecolor='black', label='2010 data')
-    plt.axvline(df_2010.murder_per_100_k.mean(), 0, 1, color='r', label='Mean')
-    plt.xlabel("Murders Per 100k in 2010")
-    plt.ylabel("MSA Count")
-    plt.title("Murders Per 100k Histogram - 2010 data")
-    plt.legend()
-```
-
-
-
 ![png](eda_milestone4_files/eda_milestone4_7_0.png)
-
-
-
-
-
-
-
 
 ```python
 relevant_cols = ['family_households_married-couple_family',
@@ -92,9 +58,6 @@ relevant_cols = ['family_households_married-couple_family',
                  'murder_per_100_k']
 ```
 
-
-
-
 ```python
 selected_cols = ['unmarried_portion_of_women_15_to_50_years_who_had_a_birth_in_past_12_months',
                  'percentage_female_householder_no_husband_present_family',
@@ -106,9 +69,6 @@ selected_cols = ['unmarried_portion_of_women_15_to_50_years_who_had_a_birth_in_p
                  'house_median_value_(dollars)',
                  'murder_per_100_k']
 ```
-
-
-
 
 ```python
 selected_col_x_vals = ['Unmarried Percent Of Women Who Gave Birth In Last 12 Months',
@@ -122,27 +82,15 @@ selected_col_x_vals = ['Unmarried Percent Of Women Who Gave Birth In Last 12 Mon
                        'Murders Per 100,000 People']
 ```
 
-
 ### Scatter Plots
-
-
-
-
-
 
 ![png](eda_milestone4_files/eda_milestone4_13_0.png)
 
-
 ### Check Very Strong Correlations
-
-
 
 ```python
 corrs = df_2010.corr().abs()
 ```
-
-
-
 
 ```python
 cols_using = ['family_households_married-couple_family',
@@ -173,13 +121,6 @@ cols_using = ['family_households_married-couple_family',
              ]
 ```
 
-
-
-
-
-
-
-
 ```python
 cols_important = ['now_married_except_separated',
                   'less_than_high_school_diploma',
@@ -193,92 +134,38 @@ cols_important = ['now_married_except_separated',
 ]
 ```
 
-
-
-
-
-
-
-
-
-
-    /Users/ilanjdor/anaconda/lib/python3.6/site-packages/seaborn/categorical.py:1428: FutureWarning: remove_na is deprecated and is a private function. Do not use.
-      stat_data = remove_na(group_data)
-
-
-
 ![png](eda_milestone4_files/eda_milestone4_20_1.png)
-
-
 
 ![png](eda_milestone4_files/eda_milestone4_20_2.png)
 
-
-
 ![png](eda_milestone4_files/eda_milestone4_20_3.png)
-
-
 
 ![png](eda_milestone4_files/eda_milestone4_20_4.png)
 
-
-
 ![png](eda_milestone4_files/eda_milestone4_20_5.png)
-
-
 
 ![png](eda_milestone4_files/eda_milestone4_20_6.png)
 
-
-
 ![png](eda_milestone4_files/eda_milestone4_20_7.png)
-
-
 
 ![png](eda_milestone4_files/eda_milestone4_20_8.png)
 
-
-
 ![png](eda_milestone4_files/eda_milestone4_20_9.png)
-
-
-
-
-
-
-    /Users/ilanjdor/anaconda/lib/python3.6/site-packages/seaborn/categorical.py:1428: FutureWarning: remove_na is deprecated and is a private function. Do not use.
-      stat_data = remove_na(group_data)
-
-
 
 ![png](eda_milestone4_files/eda_milestone4_21_1.png)
 
-
 ### Correlation Heatmap
 
-
-
-
-
-
-
-
-
-
 ![png](eda_milestone4_files/eda_milestone4_24_0.png)
-
 
 ## EDA on All Data
 
 ### Data Import
 
-
-
 ```python
 df_all = pd.read_csv('../data/merged/all_data_2006_to_2016.csv')
 df_all.info()
 ```
-
 
     <class 'pandas.core.frame.DataFrame'>
     RangeIndex: 928 entries, 0 to 927
@@ -299,23 +186,10 @@ df_all.info()
     dtypes: float64(8), int64(2), object(3)
     memory usage: 94.3+ KB
 
-
 ### Histogram
-
-
-
-
-
 
 ![png](eda_milestone4_files/eda_milestone4_29_0.png)
 
-
 ### Scatter Plots
 
-
-
-
-
-
 ![png](eda_milestone4_files/eda_milestone4_31_0.png)
-
