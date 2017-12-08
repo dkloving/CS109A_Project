@@ -24,7 +24,7 @@
   </head>
   <body>
     <div class="container-lg px-3 my-5 markdown-body">
-      <nav class="group">
+      <nav class="group" position ="fixed">
         {% if site.title and site.title != page.title %}
            <a href="{{ "/" | absolute_url }}">{{ site.title }}</a>
         {% endif %}
@@ -52,5 +52,7 @@
     </div>
     <script src="{{ "assets/javascript/anchor-js/anchor.min.js" | relative_url }}"></script>
     <script>anchors.add();</script>
+    
+    <a href="#top">Go to top</a>
   </body>
 </html>
