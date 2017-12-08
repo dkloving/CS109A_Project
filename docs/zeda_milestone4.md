@@ -10,13 +10,6 @@ nav_include: 2
 {: toc}
 
 
-# EDA
-
-
-
-
-
-
 ## Preliminary EDA on 2010 Data
 
 ### Data Import
@@ -42,17 +35,17 @@ df_2010.info()
 
 ```python
 with sns.axes_style("darkgrid"):
-    plt.hist(df_2010.murder_per_100_k.values, bins=50, facecolor='black', label='2010 data')
+    plt.hist(df_2010.murder_per_100_k.values, bins=50, facecolor='black')
     plt.axvline(df_2010.murder_per_100_k.mean(), 0, 1, color='r', label='Mean')
-    plt.xlabel("Murders Per 100k in 2010")
-    plt.ylabel("MSA Count")
-    plt.title("Murders Per 100k Histogram - 2010 data")
+    plt.xlabel("Murders Per 100k")
+    plt.ylabel("Counts")
+    plt.title("Murders Per 100k Histogram")
     plt.legend()
 ```
 
 
 
-![png](eda_milestone4_files/eda_milestone4_7_0.png)
+![png](eda_milestone4_files/eda_milestone4_6_0.png)
 
 
 
@@ -127,7 +120,7 @@ selected_col_x_vals = ['Unmarried Percent Of Women Who Gave Birth In Last 12 Mon
 
 
 
-![png](eda_milestone4_files/eda_milestone4_13_0.png)
+![png](eda_milestone4_files/eda_milestone4_12_0.png)
 
 
 ### Check Very Strong Correlations
@@ -204,39 +197,39 @@ cols_important = ['now_married_except_separated',
 
 
 
-![png](eda_milestone4_files/eda_milestone4_20_1.png)
+![png](eda_milestone4_files/eda_milestone4_19_1.png)
 
 
 
-![png](eda_milestone4_files/eda_milestone4_20_2.png)
+![png](eda_milestone4_files/eda_milestone4_19_2.png)
 
 
 
-![png](eda_milestone4_files/eda_milestone4_20_3.png)
+![png](eda_milestone4_files/eda_milestone4_19_3.png)
 
 
 
-![png](eda_milestone4_files/eda_milestone4_20_4.png)
+![png](eda_milestone4_files/eda_milestone4_19_4.png)
 
 
 
-![png](eda_milestone4_files/eda_milestone4_20_5.png)
+![png](eda_milestone4_files/eda_milestone4_19_5.png)
 
 
 
-![png](eda_milestone4_files/eda_milestone4_20_6.png)
+![png](eda_milestone4_files/eda_milestone4_19_6.png)
 
 
 
-![png](eda_milestone4_files/eda_milestone4_20_7.png)
+![png](eda_milestone4_files/eda_milestone4_19_7.png)
 
 
 
-![png](eda_milestone4_files/eda_milestone4_20_8.png)
+![png](eda_milestone4_files/eda_milestone4_19_8.png)
 
 
 
-![png](eda_milestone4_files/eda_milestone4_20_9.png)
+![png](eda_milestone4_files/eda_milestone4_19_9.png)
 
 
 
@@ -248,7 +241,7 @@ cols_important = ['now_married_except_separated',
 
 
 
-![png](eda_milestone4_files/eda_milestone4_21_1.png)
+![png](eda_milestone4_files/eda_milestone4_20_1.png)
 
 
 ### Correlation Heatmap
@@ -262,7 +255,7 @@ cols_important = ['now_married_except_separated',
 
 
 
-![png](eda_milestone4_files/eda_milestone4_24_0.png)
+![png](eda_milestone4_files/eda_milestone4_23_0.png)
 
 
 ## EDA on All Data
@@ -304,7 +297,7 @@ df_all.info()
 
 
 
-![png](eda_milestone4_files/eda_milestone4_29_0.png)
+![png](eda_milestone4_files/eda_milestone4_28_0.png)
 
 
 ### Scatter Plots
@@ -314,5 +307,4 @@ df_all.info()
 
 
 
-![png](eda_milestone4_files/eda_milestone4_31_0.png)
-
+![png](eda_milestone4_files/eda_milestone4_30_0.png)
