@@ -24,7 +24,7 @@
   </head>
   <body>
     <div class="container-lg px-3 my-5 markdown-body">
-      <nav class="group" style="position: fixed">
+      <nav class="group">
         {% if site.title and site.title != page.title %}
            <a href="{{ "/" | absolute_url }}">{{ site.title }}</a>
         {% endif %}
@@ -38,7 +38,7 @@
                     {% endif %}
                 {% endif %}
         {% endfor %}
-        </nav>
+      </nav>
 
       <h1>{{page.title}}</h1>
 
