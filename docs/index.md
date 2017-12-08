@@ -13,6 +13,8 @@ Our goal was to lay the groundwork for future research and public policy decisio
 ### Introduction and Description of Data
 Building an understanding of violent crime enables policy makers to make informed decisions to reduce incidents of violence. We focus on murder as a proxy for violent crime. Although murder is an outlier of criminal behavior, murder has a clear and consistent definition nationally (and frequently internationally) while being reported reliably. This reliability and consistency makes murder rate a good metric.
 
+![png](img/eda_histogram_2010murders.png)
+
 Murder is a relatively (although not absolutely) rare occurrence. That is, while many people get murdered each year, most people die from causes other than murder. Gaining scientific insight into this particular crime is challenging due to its relative infrequency. Furthermore, murder is often a highly personal crime whose circumstances vary widely by instance. It is not clear to what degree we can build the necessary insight using the data that is currently being collected, and so we must answer whether it is reasonable to embark on a major research project with such data or not. This project is an important first step as it provides direction for further work.
 
  For our analysis, we needed two main datasets: one consisting of violent crimes (including murder rate) in each MSA (metropolitan statistical area) and another consisting of Census data about the same MSAs. The murder rates, by MSA and year, were scraped from the `ucr.fbi.gov` website (accounting for differences by year in website URL format and HTML table tags), Census data was downloaded from the `factfinder.census.gov` website and CSV files were imported into a Python script. Note that the FBI does not provide a standalone rate for murder, only; the rate they provide includes both murders as well as instances of non-negligent manslaughter. It is this rate that we are referring to whenever we discuss or model the 'murder' rate.
@@ -69,6 +71,7 @@ We ran each of these models on both the full and sans-outliers train datasets in
 After removing outliers, we found that train and test scores generally both increased and their distributions tightened, indicating a better predictive ability. Similarly, the distributions of coefficients of linear models tightened (dramatically in some cases). This suggested that when we evaluate coefficient significance, by removing outliers we may be able to reject the null hypothesis much more readily. This provides a strong reason to continue our experiments with the no-outliers sets.
 
 #### Modeling Feature Subsets
+![png](img/feature_violin_testR2.png)
 
 Next, we decided to examine the differences between including/excluding, in our modeling, MSA, year and/or the remaining features. More specifically, we looked at the following subsets:
 - MSA + Year
@@ -159,8 +162,3 @@ Our project goal was to establish the viability of the census dataset for furthe
 We also discovered a few specific areas of future inquiry. Most significantly, the opposing effects of food stamp benefits and poverty suggest a complicated story waiting to be revealed. The accuracy gained by using deep neural networks also suggests that complex interactions are important, and with the rapidly growing subfield of interpretability there may be an opportunity to explore what can be learned from these models.
 
 What our project does not provide is a clear explanation of the factors influencing violent crime, and the high confidence of our coefficients in linear models may mislead the reader into mistakenly believing that it does. Our feature selection was not rigorous because our task demanded only representative features. Our analysis of coefficients points toward areas of further inquiry, but should not itself be used to guide policy decisions. Given more time, we would like to build a much larger set of usable features so that more rigorous feature selection could be performed.
-
-
-
-<br><br>
-![png](img/report_requirements.png)
