@@ -1,7 +1,7 @@
 ---
 title: Murder Rate Predictive Analysis
 ---
-<img style="float: right;margin-top: 20px;" src="img/police-line.jpg">
+<img style="float: right;margin-top: 50px;" src="img/police-line.jpg">
 
 
 > **Created by Team 14:** *David Loving* \| *Ilan Dor* \| *Volodymyr Popil*
