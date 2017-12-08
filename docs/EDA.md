@@ -1,6 +1,6 @@
 ---
 title: EDA
-notebook: eda_milestone4.ipynb
+notebook: EDA.ipynb
 nav_include: 2
 ---
 

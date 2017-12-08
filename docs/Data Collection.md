@@ -1,6 +1,6 @@
 ---
 title: Collection
-notebook: data_collection.ipynb
+notebook: Data Collection.ipynb
 nav_include: 1
 ---
 
