@@ -6,7 +6,6 @@ title: Murder Rate Predictive Analysis
 
 > **Created by Team 14:** *David Loving* \| *Ilan Dor* \| *Volodymyr Popil*
 
-
 ### Problem Statement and Motivation
 > This should be brief and self-contatined.
 
@@ -68,10 +67,11 @@ It mentioned that "in science and engineering the mean is normally taken from an
 >
 >
 #### Modeling Outlier Effects
+![png](img/outliers.png)
 
 We began the modeling phase by first splitting our merged dataset into train and test sets. We conducted a random 70/30 split for train and test, respectively.
 
-During our EDA, we noticed a few observations with particularly high murder rates. Therefore, we created a second train/test set by removing those outliers from our existing train/test set (without performing a re-split).
+During our EDA, we noticed a few observations with particularly high murder rates. Comparing coefficient confidence intervals of OLS and Huber models, we found that Huber strongly outperformed OLS. This indicated that our OLS estimator was being influenced by the presence of outliers. Therefore, we created a second train/test set by removing those outliers from our existing train/test set (without performing a re-split).
 
 For our baseline modeling, we used a dictionary approach which allowed us to run a series of models in a somewhat side-by-side progression. For a large number of bootstrapped samples, we fit and evaluated Linear, Ridge, Huber, k-NN, Adaboost and SVR (support vector regression) models in this initial stage of modeling. For all models except Linear, on each bootstrap sample we used cross-validation for parameter tuning and to prevent overfitting. Each bootstrap sample was passed to all of the models so that they received identical training data, and then the fitted models were scored on the original training and test sets.
 
@@ -108,7 +108,7 @@ Next, we decided to examine temporal effects. We analyzed the following subsets:
 
 In order to model the temporal effects, we smoothed the features using a moving average. Due to how this method works, it was necessary to use a train/test split at a point in time rather than randomly (as we did in all of our other models). We chose a split year of 2013, thereby including all data sans outliers from 2006-2013 in our train dataset and all data sans outliers from 2014-2016 in our test dataset. For the dataset inclusive of `MSA`, we one-hot encoded `MSA`. We standardized the features (based on the newly-determined training data, only).
 
-We used a simple 5-year moving average to smooth the features in the train data, only. We took an equal number of years on either side of the observation year to average across. So, for example, if the observation year was 2013 for the Denver MSA, we would have averaged the 2011 through 2015 observations for Denver, insofar as they were available. Missing/skipped observation years were simply not included in the averages. The same handling was applied to years near the beginning or end of the dataset. We smooth the features in the train data, only, because the train data is what we use to fit the models while the test data is 'unknown' to us.
+We used a simple 5-year moving average to smooth the features in the train data, only. We took an equal number of years on either side of the observation year to average across. So, for example, if the observation year was 2013 for the Denver MSA, we would have averaged the 2011 through 2015 observations for Denver, insofar as each was available. Missing/skipped observation years were simply not included in the averages. The same handling was applied to years near the beginning or end of the dataset. We smooth the features in the train data, only, because the train data is what we use to fit the models while the test data is 'unknown' to us. Also, we want the model to make predictions on actual individual observations, not multiple smoothed ones.
 
 We fit and ran Linear, Ridge, Huber, k-NN, Adaboost and SVR models for each of the three datasets according to the same bootstrapping procedure used previously. For all models except linear, we used cross-validation to prevent overfitting and for parameter tuning.
 
@@ -116,7 +116,6 @@ The smoothed models performed stronger on training sets while non-smoothed perfo
 
 
 #### Deep Learning
-<img style="float: none;" src="img/dnn.png">
 ![png](img/dnn.png)
 
 In previous experiments, we did not explore the effect of interaction terms, and only a few of the models tested implicitly included nonlinear functions of the input variables. In order to get a slightly deeper idea of the effects of both interactions and nonlinearities, we use deep neural networks.
@@ -165,15 +164,17 @@ All models have nearly identical train scores and test scores, and we are not co
 `house_median_value_(dollars)` has a slightly negative effect, but is likely a proxy for a number of latent variables.
 
 ### Results, Conclusions, and Future Work
->Show and interpret your results. Summarize your results, the strengths and short-coming of your results, and speculated on how you might dress these short-comings if given more time
+
+Our project goal was to establish the viability of the census dataset for further work on explaining violent crime rates. In order to obtain confident results, we used bootstrapping while observing model scores. This revelaed that the subset of census features we selected does have reliable predictive ability, and b
+
+>Show and interpret your results. Summarize your results, the strengths and short-coming of your results, and speculated on how you might address these short-comings if given more time
 
 
 
 *Todo*
 
-(To do list for notebooks, not this report)
 
-1) 
 
-<br><br><br>
+
+<br><br>
 ![png](img/report_requirements.png)
