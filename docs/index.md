@@ -7,14 +7,10 @@ title: Murder Rate Predictive Analysis
 > **Created by Team 14:** *David Loving* \| *Ilan Dor* \| *Volodymyr Popil*
 
 ### Problem Statement and Motivation
-> This should be brief and self-contatined.
-
 Our goal was to lay the groundwork for future research and public policy decisions by analyzing the degree to which current data sources can provide explanations for variation in violent crime rates. If we can show that the current data has strong predictive power, it would suggest that further research with that data may be able to establish causitive factors of violent crime and to guide public policy. If, on the other hand, the available data has no or weak predictive power, it would support an investment in gathering more data in order to enable research on causitive factors. The core motivation behind our goal rests in the simple fact that violent crime is and has always been a most tragic and detrimental part of society and people's lives, and we believe that with enough knowledge it can be reduced if not eliminated.
 
 
 ### Introduction and Description of Data
->Description of relevant knowledge. Why this problem is important? Why is it challenging? Introduce the motivations for the project question and how that question was defined through preliminary EDA
-
 
 Building an understanding of violent crime enables policy makers to make informed decisions to reduce incidents of violence. We focus on murder as a proxy for violent crime. Although murder is an outlier of criminal behavior, murder has a clear and consistent definition nationally (and frequently internationally) while being reported reliably. This reliability and consistency makes murder rate a good metric.
 
@@ -53,9 +49,6 @@ Denver-Aurora-Lakewood, CO|Denver-Aurora, CO|DENVER_CO|2016
 We gained general insight into recent violent crime trends from a Congressional Research Report, [Is Violent Crime in the United States Increasing?](https://fas.org/sgp/crs/misc/R44259.pdf) by Nathan James (2015). James establishes that national homicide and violent crime rates have been trending downward since 1990, and that there was not in 2015 statistically significant evidence to believe that this trend has reversed. This informs our decision to use year as a continuous predictor in order to capture the overall national trend. Although James enumerates some reasons that individual cities may show trends that differ from the national trend, we do not model this because we are more interested in explaining this divergence than using observed divergences.
 
 
-
->This could include noting any key papers, texts, or websites that you have used to develop your modeling approach, as well as what others have done on this problem in the past. You must properly credit sources.
->
 We took our moving average approach from the Wikipedia page for that topic: 
 
 https://en.wikipedia.org/wiki/Moving_average
@@ -63,9 +56,7 @@ https://en.wikipedia.org/wiki/Moving_average
 It mentioned that "in science and engineering the mean is normally taken from an equal number of data on either side of a central value. This ensures that variations in the mean are aligned with the variations in the data rather than being shifted in time." Therefore, this is the approach that we used in our temporal modeling.
 
 ### Modeling Approach and Project Trajectory
->Include 1) a baseline model for comparison and 2) a description of your implementations beyond the baseline model. Briefly summarize any changes in your project goals or implementation plans you have made along the way. These changes are a natural part of any project, even those that seem the most straightforward at the beginning. The story you tell about how you arrived at your results can powerfully illustrate your process
->
->
+
 #### Modeling Outlier Effects
 ![png](img/outliers.png)
 
@@ -165,10 +156,9 @@ All models have nearly identical train scores and test scores, and we are not co
 
 ### Results, Conclusions, and Future Work
 
-Our project goal was to establish the viability of the census dataset for further work on explaining violent crime rates. In order to obtain confident results, we used bootstrapping while observing model scores. This revelaed that the subset of census features we selected does have reliable predictive ability, and b
+Our project goal was to establish the viability of the census dataset for further work on explaining violent crime rates. In order to obtain confident results, we used bootstrapping while observing model scores. This revelaed that the subset of census features we selected does have reliable predictive ability, and by extension so does the census dataset as a whole.
 
->Show and interpret your results. Summarize your results, the strengths and short-coming of your results, and speculated on how you might address these short-comings if given more time
-
+We also discovered a few specific areas of future inquiry. Most significantly, the opposing effects of food stamp benefits and poverty suggest a complicated story waiting to be revealed. The accuracy gained by using deep neural networks also suggests
 
 
 *Todo*
